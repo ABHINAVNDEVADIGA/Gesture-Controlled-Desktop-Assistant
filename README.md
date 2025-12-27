@@ -1,4 +1,5 @@
 # 🖐️ Gesture-Controlled Desktop Assistant
+  -by ABHINAV N DEVADIGA
 ### Virtual Mouse & System Control Using Hand Gestures
 
 This project implements a **real-time hand gesture–based desktop control system** using a webcam and computer vision. By leveraging **MediaPipe** for hand landmark detection and **PyAutoGUI** for system interaction, users can control mouse movement, clicks, scrolling, system volume, and screen brightness — **completely touch-free**.
