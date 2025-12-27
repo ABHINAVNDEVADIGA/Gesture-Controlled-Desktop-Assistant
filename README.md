@@ -1,59 +1,142 @@
-# Hand Gesture Controller (Virtual Mouse and Input System)
+# 🖐️ Gesture-Controlled Desktop Assistant
+### Virtual Mouse & System Control Using Hand Gestures
 
-This project uses a webcam and computer vision (MediaPipe) to create a virtual input system that allows users to control the mouse, clicks, scrolling, system volume, and brightness using hand gestures.
+This project implements a **real-time hand gesture–based desktop control system** using a webcam and computer vision. By leveraging **MediaPipe** for hand landmark detection and **PyAutoGUI** for system interaction, users can control mouse movement, clicks, scrolling, system volume, and screen brightness — **completely touch-free**.
 
-## ✨ Features
+---
 
-  * **Virtual Mouse:** Move the cursor by moving your hand (`V_GEST`).
-  * **Mouse Clicks:** Single-click, double-click, and right-click using distinct hand shapes.
-  * **Drag & Drop:** Use a closed fist (`FIST`) to hold the left mouse button for dragging.
-  * **Scrolling:** Scroll vertically and horizontally using the minor hand's pinch gesture (`PINCH_MINOR`).
-  * **System Controls (Windows-only for Volume and Brightness):** Adjust system volume and screen brightness using the major hand's pinch gesture (`PINCH_MAJOR`).
+## ✨ Key Features
 
-## 💻 Prerequisites
+- 🖱️ **Virtual Mouse Control**  
+  Move the mouse cursor naturally using hand movements.
 
-Before running the script, ensure you have Python installed and a working webcam.
+- 🖱️ **Mouse Actions**  
+  - Single click  
+  - Double click  
+  - Right click  
+  - Drag & drop
 
-### Installation
+- 📜 **Scrolling**  
+  Vertical and horizontal scrolling using pinch gestures.
 
-Install the required Python libraries using `pip`:
+- 🔊 **System Volume Control (Windows)**  
+  Increase or decrease system volume using hand gestures.
+
+- 💡 **Screen Brightness Control (Windows)**  
+  Adjust display brightness without touching the keyboard.
+
+- 🎥 **Real-Time Processing**  
+  Low-latency gesture detection using MediaPipe Hands.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Python**
+- **OpenCV** – Camera input & image processing  
+- **MediaPipe** – Hand landmark detection  
+- **PyAutoGUI** – Mouse & keyboard automation  
+- **PyCAW** – System audio control (Windows)  
+- **screen-brightness-control** – Brightness adjustment  
+
+---
+
+## 💻 System Requirements
+
+- Windows OS (for volume & brightness control)
+- Python **3.8 – 3.10** (recommended)
+- Webcam (minimum 720p for best accuracy)
+
+---
+
+## 📦 Installation
+
+### 1️⃣ Clone the Repository
 
 ```bash
-pip install opencv-python mediapipe pyautogui screen-brightness-control
-```
+git clone https://github.com/ABHINAVNDEVADIGA/Gesture-Controlled-Desktop-Assistant.git
+cd Gesture-Controlled-Desktop-Assistant
+2️⃣ Create & Activate Virtual Environment
+python -m venv venv
+venv\Scripts\activate
 
-> ⚠️ **Windows Users:** For system volume control, you must also install `pycaw` and `comtypes`.
+3️⃣ Install Dependencies
+pip install opencv-python mediapipe pyautogui screen-brightness-control pycaw comtypes
 
-```bash
-pip install pycaw comtypes
-```
 
-## 🚀 How to Run
+⚠️ Important:
+Run the terminal or VS Code as Administrator for reliable volume and brightness control.
 
-1.  Save the provided code as a Python file (e.g., `gesture_controller.py`).
-2.  Run the script from your terminal:
-
-<!-- end list -->
-
-```bash
+🚀 How to Run
 python gesture_controller.py
-```
 
-3.  A window showing your webcam feed will open. The system will start tracking your hand movements and applying controls to your desktop.
-4.  To exit, click on the video window and press the **ENTER** key.
 
-## ✋ Gesture Guide
+A webcam window titled “Gesture Controller” will open.
 
-The system distinguishes between a **Major Hand** (Right Hand by default) for mouse control and a **Minor Hand** (Left Hand by default) for utility controls.
+Perform gestures in front of the camera to control the system.
 
-| Gesture | Hand | Action |
-| :--- | :--- | :--- |
-| **V-Sign** (`V_GEST`) | Major | **Move Mouse Cursor** |
-| **Closed Fist** (`FIST`) | Major | **Left-Click Hold / Drag** |
-| **Middle Finger Up** (`MID`) | Major | **Left-Click** (Single) |
-| **Index Finger Up** (`INDEX`) | Major | **Right-Click** |
-| **Index & Middle Together** (`TWO_FINGER_CLOSED`) | Major | **Double Left-Click** |
-| **Index + Thumb Pinch** (`PINCH_MAJOR`) | Major | **System Volume (Y-axis) / Brightness (X-axis)** |
-| **Index + Thumb Pinch** (`PINCH_MINOR`) | Minor | **Vertical & Horizontal Scroll** |
+Press ENTER while the window is active to exit.
 
------
+✋ Gesture Guide
+
+The system differentiates between:
+
+Major Hand → Cursor & system control (Right hand by default)
+
+Minor Hand → Scrolling actions (Left hand by default)
+
+Gesture	Hand	Action
+✌️ V-Sign	Major	Move Mouse Cursor
+✊ Closed Fist	Major	Left-Click Hold / Drag
+☝️ Middle Finger	Major	Left Click
+👉 Index Finger	Major	Right Click
+✌️🤏 Two Fingers Closed	Major	Double Click
+🤏 Pinch (Index + Thumb)	Major	Brightness (X-axis) / Volume (Y-axis)
+🤏 Pinch (Index + Thumb)	Minor	Vertical / Horizontal Scroll
+🧠 How It Works
+
+Webcam captures real-time video frames
+
+MediaPipe detects hand landmarks
+
+Landmark geometry is converted into gesture states
+
+Gestures are mapped to system actions
+
+PyAutoGUI and PyCAW execute OS-level controls
+
+⚠️ Known Limitations
+
+Designed primarily for Windows
+
+Brightness control depends on display hardware
+
+Requires good lighting conditions
+
+📌 Future Enhancements
+
+Gesture customization UI
+
+Multi-monitor support
+
+Cross-platform brightness handling
+
+Executable (.exe) release
+
+Gesture-based app switching
+
+👨‍💻 Author
+
+Abhinav N Devadiga
+Gesture-Controlled Desktop Assistant
+
+🔗 GitHub: https://github.com/ABHINAVNDEVADIGA
+
+
+---
+
+### ✅ What to do next
+```bash
+git add README.md
+git commit -m "Update README with full project documentation"
+git push origin master
